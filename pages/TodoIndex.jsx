@@ -29,6 +29,8 @@ export function TodoIndex() {
     }, [filterBy])
 
     function onRemoveTodo(todoId) {
+        if (!confirm('Are you sure you want to delete this todo?')) return
+        
         todoService.remove(todoId)
             .then(() => {
                 setTodos(prevTodos => prevTodos.filter(todo => todo._id !== todoId))
