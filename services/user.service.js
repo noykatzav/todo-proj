@@ -33,6 +33,9 @@ function login({ username, password }) {
 function signup({ username, password, fullname }) {
     const user = { username, password, fullname }
     user.createdAt = user.updatedAt = Date.now()
+    user.balance = 0
+    user.activities = []
+    
 
     return storageService.post(STORAGE_KEY, user)
         .then(_setLoggedinUser)
