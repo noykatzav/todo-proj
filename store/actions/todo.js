@@ -1,4 +1,4 @@
-import { SET_TODOS, REMOVE_TODO, SET_FILTER_BY,store } from '../store.js'
+import { SET_TODOS, REMOVE_TODO, SET_FILTER_BY, SET_IS_LOADING, store } from '../store.js'
 import { todoService } from '../../services/todo.service.js'
 
 export function loadTodos(filterBy = {}) {
