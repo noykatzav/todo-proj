@@ -11,6 +11,8 @@ export const SET_TODO_COLOR = 'SET_TODO_COLOR'
 
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 
+export const SET_IS_LOADING = 'SET_IS_LOADING'
+
 export const INCREMENT_BY_TEN = 'INCREMENT_BY_TEN'
 
 
@@ -38,12 +40,15 @@ export function appReducer(state = initialState, cmd = {}) {
         case UPDATE_TODO:
             return { ...state, todos: state.todos.map(todo => todo._id === cmd.todo._id ? cmd.todo : todo) }
         
+        case SET_FILTER_BY:
+            return { ...state, filterBy: cmd.filterBy }
+        
+        case SET_IS_LOADING:
+            return { ...state, isLoading: cmd.isLoading }
+                
         case INCREMENT_BY_TEN:
             const loggedinUser = { ...state.loggedinUser, balance: state.loggedinUser.balance + 10 }
             return { ...state, loggedinUser }
-
-        case SET_FILTER_BY:
-            return { ...state, filterBy: cmd.filterBy }
 
         default:
             return state
